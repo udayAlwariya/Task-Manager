@@ -17,11 +17,11 @@ export default function AppRoutes() {
     <BrowserRouter>
       <Routes>
         {/* Default redirect to register */}
-        <Route path="/" element={<Navigate to="/dashboard" replace />} />
+        <Route path="/" element={<Navigate to="/Task-Manager/dashboard" replace />} />
         {/* Public Routes (no auth needed) */}
         <Route element={<AuthLayout />}>
-          <Route path="/register" element={<Register />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/Task-Manager/register" element={<Register />} />
+          <Route path="/Task-Manager/login" element={<Login />} />
         </Route>
         <Route
           element={
@@ -31,7 +31,7 @@ export default function AppRoutes() {
           }
         >
           <Route
-            path="/tasks"
+            path="/Task-Manager/tasks"
             element={
               <ProtectedRoute>
                 <TaskList />
@@ -40,7 +40,7 @@ export default function AppRoutes() {
           />
           {/* user protected Routes */}
           <Route
-            path="/create-task"
+            path="/Task-Manager/create-task"
             element={
               <ProtectedRoute>
                 <CreateTask />
@@ -48,7 +48,7 @@ export default function AppRoutes() {
             }
           />
           <Route
-            path="/edit-task/:id"
+            path="/Task-Manager/edit-task/:id"
             element={
               <ProtectedRoute>
                 <EditTask />
@@ -57,7 +57,7 @@ export default function AppRoutes() {
           />
           {/* admin protected Routes */}
           <Route
-            path="/dashboard"
+            path="/Task-Manager/dashboard"
             element={
               <AdminProtectedRoute>
                 <Dashboard />
@@ -65,7 +65,7 @@ export default function AppRoutes() {
             }
           />
           <Route
-            path="/manage-users"
+            path="/Task-Manager/manage-users"
             element={
               <AdminProtectedRoute>
                 <ManageUsers />
